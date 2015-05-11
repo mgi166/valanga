@@ -1,9 +1,22 @@
 
 RSpec.describe Valanga::Client do
   describe '#login' do
-    it do
-      v = Valanga::Client.new
-      v.login(ENV['KID'], ENV['K_PASSWORD'])
+    let(:client) { Valanga::Client.new }
+
+    context 'when loggin successful' do
+      it do
+        expect(
+          client.login(ENV['KID'], ENV['K_PASSWORD'])
+        ).to be true
+      end
+    end
+
+    context 'when loggin failed' do
+      it do
+        expect do
+          client.login("hoge", "password")
+        end.to raise_error RuntimeError
+      end
     end
   end
 end
