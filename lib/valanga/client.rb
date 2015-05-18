@@ -25,8 +25,7 @@ module Valanga
       @session.click_on "規約に同意してログイン"
 
       unless successful_login?
-        page = Nokogiri::HTML.parse(session.html)
-        raise LoginError, page.xpath('//div[@class="error_text_box"]/p').text
+        raise LoginError, session.find(:xpath, '//div[@class="error_text_box"]/p').text
       end
     end
 
