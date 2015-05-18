@@ -23,9 +23,12 @@ module Valanga
       @session.fill_in 'pass', with: password
 
       @session.click_on "規約に同意してログイン"
+
+      raise LoginError unless logged_in?
     end
 
     def logged_in?
+      @session.current_path == "/gate/p/mypage/index.html"
     end
   end
 end
