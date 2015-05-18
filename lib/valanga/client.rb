@@ -1,35 +1,38 @@
-require 'mechanize'
+require 'capybara'
+require 'capybara/poltergeist'
 
 module Valanga
   class Client
-    LOGIN_PAGE = "https://p.eagate.573.jp/gate/p/login.html"
-    MUSIC_INDEX = "http://p.eagate.573.jp/game/reflec/groovin/p/music/index.html"
+    LOGIN_PAGE  = "https://p.eagate.573.jp/gate/p/login.html"
+    MUSIC_INDEX = "https://p.eagate.573.jp/game/reflec/groovin/p/music/index.html"
+
+    attr_reader :session
 
     def initialize
-      @mechanize = Mechanize.new do |mech|
-        mech.keep_alive = false
+      Capybara.register_driver :poltergeist do |app|
+        Capybara::Poltergeist::Driver.new(app)
       end
+
+      @session = Capybara::Session.new(:poltergeist)
     end
 
     def login(username, password)
-      @mechanize.get(LOGIN_PAGE) do |page|
-        page.form_with do |f|
-          f.encoding = 'Shift_JIS'
-          f['KID']  = username
-          f['pass'] = password
-        end.submit
-      end
+      @session.visit LOGIN_PAGE
 
-      if logged_in?
-        true
-      else
-        raise
+      @session.fill_in 'KID', with: username
+      @session.fill_in 'pass', with: password
+
+      @session.click_on "規約に同意してログイン"
+
+      unless successful_login?
+        raise LoginError, session.find(:xpath, '//div[@class="error_text_box"]/p').text
       end
     end
 
-    def logged_in?
-      page = @mechanize.get(MUSIC_INDEX)
-      ! page.links.find { |link| link.text =~ /ログイン/ }
+    private
+
+    def successful_login?
+      @session.current_path == "/gate/p/mypage/index.html"
     end
   end
 end
