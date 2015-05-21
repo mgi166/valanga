@@ -8,15 +8,19 @@ module Valanga
 
     attr_reader :session
 
-    def initialize
+    def initialize(username, password)
       Capybara.register_driver :poltergeist do |app|
         Capybara::Poltergeist::Driver.new(app)
       end
 
       @session = Capybara::Session.new(:poltergeist)
+
+      login!(username, password)
     end
 
-    def login(username, password)
+    private
+
+    def login!(username, password)
       @session.visit LOGIN_PAGE
 
       @session.fill_in 'KID', with: username
@@ -28,8 +32,6 @@ module Valanga
         raise LoginError, session.find(:xpath, '//div[@class="error_text_box"]/p').text
       end
     end
-
-    private
 
     def successful_login?
       @session.current_path == "/gate/p/mypage/index.html"
