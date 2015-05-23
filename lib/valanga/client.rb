@@ -4,13 +4,12 @@ require 'capybara/poltergeist'
 module Valanga
   class Client
     LOGIN_PAGE  = "https://p.eagate.573.jp/gate/p/login.html"
-    MUSIC_INDEX = "https://p.eagate.573.jp/game/reflec/groovin/p/music/index.html"
 
     attr_reader :session
 
     def initialize(username, password)
       Capybara.register_driver :poltergeist do |app|
-        Capybara::Poltergeist::Driver.new(app)
+        Capybara::Poltergeist::Driver.new(app, js_errors: false)
       end
 
       @session = Capybara::Session.new(:poltergeist)
