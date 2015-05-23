@@ -7,6 +7,9 @@ module Valanga
     end
 
     def list_musics(page: nil)
+      @session.visit(music_url(page: page))
+      page = Nokogiri::HTML.parse(@session.html)
+      page.css("#music_table1 td.music_jkimg a").map(&:text).map(&:strip)
     end
 
     private
