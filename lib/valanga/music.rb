@@ -8,5 +8,13 @@ module Valanga
 
     def list_musics(page: nil)
     end
+
+    private
+
+    def music_url(page: nil)
+      URI.parse(MUSIC_INDEX).tap do |u|
+        u.query = "page=#{page}" if page
+      end
+    end
   end
 end
