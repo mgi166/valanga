@@ -42,6 +42,14 @@ RSpec.describe Valanga::Music do
           end.to raise_error ArgumentError
         end
       end
+
+      context 'given `sort` is not included in `asc` or `desc`' do
+        it do
+          expect do
+            @music.list_musics(sort: "aaa")
+          end.to raise_error ArgumentError
+        end
+      end
     end
   end
 end
