@@ -24,6 +24,12 @@ RSpec.describe Valanga::Music do
           @music.list_musics(sorttype: :music_name)
         end.not_to raise_error
       end
+
+      it do
+        expect do
+          @music.list_musics(sort: :asc)
+        end.not_to raise_error
+      end
     end
 
     context 'with invalid parameters' do
