@@ -3,10 +3,22 @@ RSpec.describe Valanga::Music do
   let(:session) { Valanga::Client.new(ENV['KID'], ENV['K_PASSWORD']).session }
 
   describe '#list_musics' do
-    context 'with valid parameter' do
+    context 'with valid parameters' do
       it do
         expect do
           music.list_musics
+        end.not_to raise_error
+      end
+
+      it do
+        expect do
+          music.list_musics(page: 1)
+        end.not_to raise_error
+      end
+
+      it do
+        expect do
+          music.list_musics(sorttype: :music_name)
         end.not_to raise_error
       end
     end

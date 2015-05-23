@@ -16,7 +16,7 @@ module Valanga
 
     def music_url(page: nil, sorttype: nil)
       if page && !(page.is_a? Integer)
-        raise ArgumentError, "page is expected to be Integer"
+        raise ArgumentError, "page: `#{page}` is expected to be Integer"
       end
 
       if sorttype && ! valid_sorttypes.include?(sorttype.to_s)
