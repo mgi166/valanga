@@ -17,6 +17,10 @@ module Valanga
       login!(username, password)
     end
 
+    def music
+      @music ||= Music.new(@session)
+    end
+
     private
 
     def login!(username, password)
