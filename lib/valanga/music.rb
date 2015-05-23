@@ -15,6 +15,10 @@ module Valanga
     private
 
     def music_url(page: nil)
+      if page && !(page.is_a? Integer)
+        raise ArgumentError, "page is expected to be Integer"
+      end
+
       URI.parse(MUSIC_INDEX).tap do |u|
         u.query = "page=#{page}" if page
       end
