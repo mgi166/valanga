@@ -8,8 +8,8 @@ module Valanga
 
     def list_musics(page: nil, sorttype: nil, sort: nil)
       @session.visit(music_url(page: page, sorttype: sorttype, sort: sort))
-      page = Nokogiri::HTML.parse(@session.html)
-      page.css("#music_table1 td.music_jkimg a").map(&:text).map(&:strip)
+      html = Nokogiri::HTML.parse(@session.html)
+      html.css("#music_table1 td.music_jkimg a").map(&:text).map(&:strip)
     end
 
     private
