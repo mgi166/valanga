@@ -11,11 +11,21 @@ RSpec.describe Valanga::Music do
       end
     end
 
-    context 'with invalid parameter' do
-      it do
-        expect do
-          music.list_musics(page: "aaa")
-        end.to raise_error ArgumentError
+    context 'with invalid parameters' do
+      context 'given `page` is not integer' do
+        it do
+          expect do
+            music.list_musics(page: "aaa")
+          end.to raise_error ArgumentError
+        end
+      end
+
+      context 'given `sorttype` is not included in `music_name` or `basic` or ` medium` or `hard` or `special`' do
+        it do
+          expect do
+            music.list_musics(sorttype: "aaa")
+          end.to raise_error ArgumentError
+        end
       end
     end
   end
