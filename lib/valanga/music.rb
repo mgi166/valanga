@@ -28,13 +28,11 @@ module Valanga
       end
 
       URI.parse(MUSIC_INDEX).tap do |u|
-        query = {
+        u.query = {
           page: page,
           sorttype: valid_sorttypes[sorttype.to_s],
           sort: valid_sorts[sort.to_s]
-        }.map { |k, v| "#{k}=#{v}" }.compact.join('&')
-
-        u.query = query unless query.empty?
+        }.map { |k, v| "#{k}=#{v}" }.join('&')
       end
     end
 
