@@ -12,6 +12,10 @@ module Valanga
       html.css("#music_table1 td.music_jkimg a").map(&:text).map(&:strip)
     end
 
+    def [](music_name)
+
+    end
+
     private
 
     def music_url(page: nil, sorttype: nil, sort: nil)

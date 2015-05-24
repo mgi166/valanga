@@ -1,11 +1,11 @@
 RSpec.describe Valanga::Music do
-  describe '#list_musics' do
-    # NOTE: Spec is too slow, so caches the capybara session.
-    before(:all) do
-      session = Valanga::Client.new(ENV['KID'], ENV['K_PASSWORD']).session
-      @music = Valanga::Music.new(session)
-    end
+  # NOTE: Spec is too slow, so caches the capybara session.
+  before(:all) do
+    session = Valanga::Client.new(ENV['KID'], ENV['K_PASSWORD']).session
+    @music = Valanga::Music.new(session)
+  end
 
+  describe '#list_musics' do
     context 'with valid parameters' do
       it do
         expect do
@@ -63,6 +63,13 @@ RSpec.describe Valanga::Music do
             @music.list_musics(sort: "aaa")
           end.to raise_error ArgumentError
         end
+      end
+    end
+  end
+
+  describe '#[]' do
+    context 'description' do
+      it do
       end
     end
   end
