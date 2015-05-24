@@ -21,7 +21,12 @@ module Valanga
         break if (table = html.css("#music_table1")).empty?
 
         begin
+          @session.click_link(music_name)
+          src = @session.find(:css, "iframe")['src']
+          @session.visit(info_url(src))
+          info = Nokogiri::HTML.parse(@session.html)
         rescue Capybara::ElementNotFound
+          # if link is not found, go next page.
         end
 
         page += 1
@@ -29,6 +34,10 @@ module Valanga
     end
 
     private
+
+    def info_url(src)
+      "http://p.eagate.573.jp/game/reflec/groovin/p/music/#{src}"
+    end
 
     def music_url(page: nil, sorttype: nil, sort: nil)
       if page && !(page.is_a? Integer)
