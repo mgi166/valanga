@@ -13,7 +13,19 @@ module Valanga
     end
 
     def [](music_name)
+      page = 1
 
+      # NOTE: 20 or more pages does not exist.
+      while page < 20 do
+        @session.visit(music_url(page: page))
+        break if (table = html.css("#music_table1")).empty?
+
+        begin
+        rescue Capybara::ElementNotFound
+        end
+
+        page += 1
+      end
     end
 
     private

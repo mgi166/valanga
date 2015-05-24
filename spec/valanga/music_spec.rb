@@ -70,6 +70,7 @@ RSpec.describe Valanga::Music do
   describe '#[]' do
     context 'description' do
       it do
+        @music['RPG']
       end
     end
   end
