@@ -1,6 +1,6 @@
 module Valanga
   class Music
-    MUSIC_INDEX = "https://p.eagate.573.jp/game/reflec/groovin/p/music/index.html"
+    MUSIC_INDEX = "http://p.eagate.573.jp/game/reflec/groovin/p/music/index.html"
 
     def initialize(session)
       @session = session
