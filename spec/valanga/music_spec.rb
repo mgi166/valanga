@@ -30,6 +30,14 @@ RSpec.describe Valanga::Music do
           @music.list_musics(sort: :asc)
         end.not_to raise_error
       end
+
+      context 'when page is over' do
+        it do
+          expect(
+            @music.list_musics(page: 10000)
+          ).to eq []
+        end
+      end
     end
 
     context 'with invalid parameters' do

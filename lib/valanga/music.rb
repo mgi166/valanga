@@ -32,7 +32,7 @@ module Valanga
           page: page,
           sorttype: valid_sorttypes[sorttype.to_s],
           sort: valid_sorts[sort.to_s]
-        }.map { |k, v| "#{k}=#{v}" if v }.compact.join('&')
+        }.map { |k, v| "#{k}=#{v}" }.compact.join('&')
 
         u.query = query unless query.empty?
       end
