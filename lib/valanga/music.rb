@@ -18,13 +18,14 @@ module Valanga
       # NOTE: 20 or more pages does not exist.
       while page < 20 do
         @session.visit(music_url(page: page))
-        break if (table = html.css("#music_table1")).empty?
 
         begin
           @session.click_link(music_name)
           src = @session.find(:css, "iframe")['src']
           @session.visit(info_url(src))
           info = Nokogiri::HTML.parse(@session.html)
+
+          break
         rescue Capybara::ElementNotFound
           # if link is not found, go next page.
         end
