@@ -82,6 +82,29 @@ module Valanga
       def has_special?
         attribute_list.size == 9
       end
+
+      def groovin_key
+        %w(
+          difficulty
+          rank
+          score
+          achievement_rate
+          miss_count
+          play_count
+          clear
+          full_combo
+        )
+      end
+
+      def collete_key
+        %w(
+         rank
+         score
+         achievement_rate
+         miss_count
+         play_count
+        )
+      end
     end
   end
 end
