@@ -37,31 +37,31 @@ module Valanga
     end
 
     def groovin_basic
-      Hash[groovin_key.zip(music_info_box[1])]
+      Hash[GROOVIN_KEY.zip(music_info_box[1])]
     end
 
     def groovin_medium
-      Hash[groovin_key.zip(music_info_box[2])]
+      Hash[GROOVIN_KEY.zip(music_info_box[2])]
     end
 
     def groovin_hard
-      Hash[groovin_key.zip(music_info_box[3])]
+      Hash[GROOVIN_KEY.zip(music_info_box[3])]
     end
 
     def groovin_special
-      Hash[groovin_key.zip(music_info_box[4])] if has_special?
+      Hash[GROOVIN_KEY.zip(music_info_box[4])] if has_special?
     end
 
     def collete_basic
-      has_special? ? Hash[collete_key.zip(music_info_box[6])] : Hash[groovin_key.zip(music_info_box[5])]
+      has_special? ? Hash[COLLETE_KEY.zip(music_info_box[6])] : Hash[COLLETE_KEY.zip(music_info_box[5])]
     end
 
     def collete_medium
-      has_special? ? Hash[collete_key.zip(music_info_box[7])] : Hash[groovin_key.zip(music_info_box[6])]
+      has_special? ? Hash[COLLETE_KEY.zip(music_info_box[7])] : Hash[COLLETE_KEY.zip(music_info_box[6])]
     end
 
     def collete_hard
-      has_special? ? Hash[collete_key.zip(music_info_box[8])] : Hash[groovin_key.zip(music_info_box[7])]
+      has_special? ? Hash[COLLETE_KEY.zip(music_info_box[8])] : Hash[COLLETE_KEY.zip(music_info_box[7])]
     end
 
     def has_special?
