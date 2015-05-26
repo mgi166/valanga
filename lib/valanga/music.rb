@@ -103,6 +103,12 @@ module Valanga
         has_special? ? Hash[collete_key.zip(music_info_box[8])] : Hash[groovin_key.zip(music_info_box[7])]
       end
 
+      def has_special?
+        music_bk.size == 9
+      end
+
+      private
+
       def music_info_box
         @music_info_box ||= music_bk.map do |dl|
           dl.children.select(&:element?).map do |ele|
@@ -117,10 +123,6 @@ module Valanga
 
       def music_bk
         @music_bk ||= @document.css("div.music_bk dl")
-      end
-
-      def has_special?
-        attribute_list.size == 9
       end
 
       def groovin_key
