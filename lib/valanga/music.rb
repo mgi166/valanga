@@ -74,6 +74,14 @@ module Valanga
       def initialize(document)
         @document = Nokogiri::HTML.parse(document)
       end
+
+      def music_bk
+        @music_bk ||= @document.css("div.music_bk dl")
+      end
+
+      def has_special?
+        attribute_list.size == 9
+      end
     end
   end
 end
