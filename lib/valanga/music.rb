@@ -23,7 +23,7 @@ module Valanga
           @session.click_link(music_name)
           src = @session.find(:css, "iframe")['src']
           @session.visit(info_url(src))
-          Parser.new(@session.html)
+          MusicAttribute.new(@session.html)
 
           break
         rescue Capybara::ElementNotFound
@@ -70,7 +70,7 @@ module Valanga
       { "asc" => 0, "desc" => 1 }
     end
 
-    class Parser
+    class MusicAttribute
       def initialize(document)
         @document = Nokogiri::HTML.parse(document)
       end
