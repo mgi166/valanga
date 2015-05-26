@@ -75,6 +75,18 @@ module Valanga
         @document = Nokogiri::HTML.parse(document)
       end
 
+      def music_info_box
+        @music_info_box ||= music_bk.map do |dl|
+          dl.children.select(&:element?).map do |ele|
+            if (img = ele.search('img')).empty?
+              ele.text
+            else
+              img.attribute('src').value
+            end
+          end
+        end
+      end
+
       def music_bk
         @music_bk ||= @document.css("div.music_bk dl")
       end
