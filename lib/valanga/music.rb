@@ -75,6 +75,34 @@ module Valanga
         @document = Nokogiri::HTML.parse(document)
       end
 
+      def groovin_basic_attribute
+        Hash[groovin_key.zip(music_info_box[1])]
+      end
+
+      def groovin_medium_attribute
+        Hash[groovin_key.zip(music_info_box[2])]
+      end
+
+      def groovin_hard_attribute
+        Hash[groovin_key.zip(music_info_box[3])]
+      end
+
+      def groovin_special_attribute
+        Hash[groovin_key.zip(music_info_box[4])] if has_special?
+      end
+
+      def collete_basic_attribute
+        has_special? ? Hash[collete_key.zip(music_info_box[6])] : Hash[groovin_key.zip(music_info_box[5])]
+      end
+
+      def collete_medium_attribute
+        has_special? ? Hash[collete_key.zip(music_info_box[7])] : Hash[groovin_key.zip(music_info_box[6])]
+      end
+
+      def collete_hard_attribute
+        has_special? ? Hash[collete_key.zip(music_info_box[8])] : Hash[groovin_key.zip(music_info_box[7])]
+      end
+
       def music_info_box
         @music_info_box ||= music_bk.map do |dl|
           dl.children.select(&:element?).map do |ele|
