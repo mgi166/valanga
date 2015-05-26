@@ -23,7 +23,7 @@ module Valanga
           @session.click_link(music_name)
           src = @session.find(:css, "iframe")['src']
           @session.visit(info_url(src))
-          info = Nokogiri::HTML.parse(@session.html)
+          Parser.new(@session.html)
 
           break
         rescue Capybara::ElementNotFound
