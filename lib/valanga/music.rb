@@ -69,5 +69,11 @@ module Valanga
     def valid_sorts
       { "asc" => 0, "desc" => 1 }
     end
+
+    class Parser
+      def initialize(document)
+        @document = Nokogiri::HTML.parse(document)
+      end
+    end
   end
 end
