@@ -80,7 +80,15 @@ module Valanga
     end
 
     def music_bk
-      @music_bk ||= @document.css("div.music_bk dl")
+      return @music_bk if defined? @music_bk
+
+      music_bk = @document.css("div.music_bk dl")
+
+      unless music_bk.size == 8 || music_bk.size == 9
+        raise NoMusicInformationError, "Not found music informations"
+      end
+
+      @music_bk = music_bk
     end
   end
 end
