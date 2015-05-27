@@ -47,7 +47,7 @@ module Valanga
       @music_info_box ||= music_bk.map do |dl|
         dl.children.select(&:element?).map do |ele|
           value = (img = ele.search('img')).empty? ? ele.text : img.attribute('src').value
-          image_text[value] || value
+          IMAGE_TEXT[value] || value
         end
       end
     end
