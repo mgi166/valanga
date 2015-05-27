@@ -1,6 +1,6 @@
 module Valanga
   class MusicAttribute
-    class Collete
+    class Collete < Base
     end
   end
 end

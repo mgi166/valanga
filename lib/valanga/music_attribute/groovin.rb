@@ -1,6 +1,6 @@
 module Valanga
   class MusicAttribute
-    class Groovin
+    class Groovin < Base
       GROOVIN_KEY = %w(
         difficulty
         rank
@@ -11,10 +11,6 @@ module Valanga
         clear
         full_combo
       )
-
-      def initialize(attribute)
-        @attribute = attribute
-      end
 
       def groovin_basic
         Hash[GROOVIN_KEY.zip(music_info_box[1])]
