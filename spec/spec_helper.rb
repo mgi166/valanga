@@ -8,4 +8,12 @@ RSpec.configure do |config|
   end
 
   require File.join(__dir__, '../lib/valanga')
+
+  module FixturePathHelper
+    def document(file_name)
+      File.read(File.join(__dir__, 'fixtures', "#{file_name}.html"))
+    end
+  end
+
+  config.include FixturePathHelper
 end
