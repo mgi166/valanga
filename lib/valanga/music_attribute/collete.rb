@@ -9,15 +9,15 @@ module Valanga
         play_count
       )
 
-      def collete_basic
+      def basic
         has_special? ? Hash[COLLETE_KEY.zip(music_info_box[6])] : Hash[COLLETE_KEY.zip(music_info_box[5])]
       end
 
-      def collete_medium
+      def medium
         has_special? ? Hash[COLLETE_KEY.zip(music_info_box[7])] : Hash[COLLETE_KEY.zip(music_info_box[6])]
       end
 
-      def collete_hard
+      def hard
         has_special? ? Hash[COLLETE_KEY.zip(music_info_box[8])] : Hash[COLLETE_KEY.zip(music_info_box[7])]
       end
     end
