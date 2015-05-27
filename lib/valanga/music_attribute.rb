@@ -17,6 +17,14 @@ module Valanga
       @document = Nokogiri::HTML.parse(document)
     end
 
+    def collete
+      Collete.new(self)
+    end
+
+    def groovin
+      Groovin.new(self)
+    end
+
     def has_special?
       music_bk.size == 9
     end
