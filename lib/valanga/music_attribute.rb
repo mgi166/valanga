@@ -6,7 +6,8 @@ module Valanga
       super
       attr = attribute.dup.extend(Transformable)
 
-      self.rank = attr.rank
+      self.rank  = attr.rank
+      self.clear = attr.clear
     end
 
     module Transformable
@@ -25,6 +26,11 @@ module Valanga
 
       def rank
         text = IMAGE_TEXT.fetch(self['rank'], self['rank'])
+        text == '-' ? nil : text
+      end
+
+      def clear
+        text = IMAGE_TEXT.fetch(self['clear'], self['clear'])
         text == '-' ? nil : text
       end
     end
