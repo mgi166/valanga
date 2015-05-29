@@ -7,6 +7,7 @@ module Valanga
       attr = attribute.dup.extend(Transformable)
 
       self.rank  = attr.rank
+      self.score = attr.score
       self.clear = attr.clear
       self.full_combo = attr.full_combo
     end
@@ -28,6 +29,10 @@ module Valanga
       def rank
         text = IMAGE_TEXT.fetch(self['rank'], self['rank'])
         text == '-' ? nil : text
+      end
+
+      def score
+        self['score'].to_i
       end
 
       def clear
