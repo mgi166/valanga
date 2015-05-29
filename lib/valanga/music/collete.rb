@@ -1,5 +1,5 @@
 module Valanga
-  class MusicAttribute
+  class Music
     class Collete < Base
       COLLETE_KEY = %w(
         rank

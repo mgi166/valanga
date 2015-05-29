@@ -1,9 +1,9 @@
-RSpec.describe Valanga::MusicAttribute::Groovin do
+RSpec.describe Valanga::Music::Groovin do
   describe '#basic' do
-    subject { Valanga::MusicAttribute::Groovin.new(attribute).basic }
+    subject { Valanga::Music::Groovin.new(attribute).basic }
 
     context 'Arousing' do
-      let(:attribute) { Valanga::MusicAttribute.new(document('Arousing')) }
+      let(:attribute) { Valanga::Music.new(document('Arousing')) }
 
       it do
         is_expected.to eq(
@@ -23,10 +23,10 @@ RSpec.describe Valanga::MusicAttribute::Groovin do
   end
 
   describe '#medium' do
-    subject { Valanga::MusicAttribute::Groovin.new(attribute).medium }
+    subject { Valanga::Music::Groovin.new(attribute).medium }
 
     context 'Arousing' do
-      let(:attribute) { Valanga::MusicAttribute.new(document('Arousing')) }
+      let(:attribute) { Valanga::Music.new(document('Arousing')) }
 
       it do
         is_expected.to eq(
@@ -46,10 +46,10 @@ RSpec.describe Valanga::MusicAttribute::Groovin do
   end
 
   describe '#hard' do
-    subject { Valanga::MusicAttribute::Groovin.new(attribute).hard }
+    subject { Valanga::Music::Groovin.new(attribute).hard }
 
     context 'Arousing' do
-      let(:attribute) { Valanga::MusicAttribute.new(document('Arousing')) }
+      let(:attribute) { Valanga::Music.new(document('Arousing')) }
 
       it do
         is_expected.to eq(
@@ -68,7 +68,7 @@ RSpec.describe Valanga::MusicAttribute::Groovin do
     end
 
     context 'Anisakis' do
-      let(:attribute) { Valanga::MusicAttribute.new(document('Anisakis')) }
+      let(:attribute) { Valanga::Music.new(document('Anisakis')) }
 
       it do
         is_expected.to eq(
@@ -88,16 +88,16 @@ RSpec.describe Valanga::MusicAttribute::Groovin do
   end
 
   describe '#special' do
-    subject { Valanga::MusicAttribute::Groovin.new(attribute).special }
+    subject { Valanga::Music::Groovin.new(attribute).special }
 
     context 'Arousing' do
-      let(:attribute) { Valanga::MusicAttribute.new(document('Arousing')) }
+      let(:attribute) { Valanga::Music.new(document('Arousing')) }
 
       it { is_expected.to be nil }
     end
 
     context 'Anisakis' do
-      let(:attribute) { Valanga::MusicAttribute.new(document('Anisakis')) }
+      let(:attribute) { Valanga::Music.new(document('Anisakis')) }
 
       it do
         is_expected.to eq(

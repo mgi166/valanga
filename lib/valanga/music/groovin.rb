@@ -1,5 +1,5 @@
 module Valanga
-  class MusicAttribute
+  class Music
     class Groovin < Base
       GROOVIN_KEY = %w(
         difficulty

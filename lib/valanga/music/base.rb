@@ -1,7 +1,7 @@
 require 'forwardable'
 
 module Valanga
-  class MusicAttribute
+  class Music
     class Base
       extend Forwardable
 
