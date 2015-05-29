@@ -55,13 +55,13 @@ RSpec.describe Valanga::Music::Groovin do
         is_expected.to eq(
           {
             'difficulty'       => 'HARD',
-            'rank'             => 'AAA+',
+            'rank'             => '/game/reflec/groovin/p/images/music/rank/syousai_5.png',
             'score'            => '1615',
             'achievement_rate' => '98.4%',
             'miss_count'       => '0',
             'play_count'       => '20',
-            'clear'            => 'clear',
-            'full_combo'       => 'all_just_reflec_full_combo',
+            'clear'            => '../images/music/d_clear_typ_0.gif',
+            'full_combo'       => '../images/music/fullcombo_img2.gif',
           }
         )
       end
@@ -74,12 +74,12 @@ RSpec.describe Valanga::Music::Groovin do
         is_expected.to eq(
           {
             'difficulty'       => 'HARD',
-            'rank'             => 'AAA',
+            'rank'             => '/game/reflec/groovin/p/images/music/rank/syousai_4.png',
             'score'            => '2069',
             'achievement_rate' => '93.9%',
             'miss_count'       => '4',
             'play_count'       => '10',
-            'clear'            => 'hard_clear',
+            'clear'            => '../images/music/d_clear_typ_1.gif',
             'full_combo'       => '-',
           }
         )
@@ -103,12 +103,12 @@ RSpec.describe Valanga::Music::Groovin do
         is_expected.to eq(
           {
             'difficulty'       => 'SPECIAL',
-            'rank'             => 'AA',
+            'rank'             => '/game/reflec/groovin/p/images/music/rank/syousai_3.png',
             'score'            => '2726',
             'achievement_rate' => '88.5%',
             'miss_count'       => '3',
             'play_count'       => '16',
-            'clear'            => 'clear',
+            'clear'            => '../images/music/d_clear_typ_0.gif',
             'full_combo'       => '-',
           }
         )

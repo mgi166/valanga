@@ -1,18 +1,5 @@
 module Valanga
   class Music
-    IMAGE_TEXT = {
-      "/game/reflec/groovin/p/images/music/rank/syousai_1.png" => "B",
-      "/game/reflec/groovin/p/images/music/rank/syousai_2.png" => "A",
-      "/game/reflec/groovin/p/images/music/rank/syousai_3.png" => "AA",
-      "/game/reflec/groovin/p/images/music/rank/syousai_4.png" => "AAA",
-      "/game/reflec/groovin/p/images/music/rank/syousai_5.png" => "AAA+",
-      "../images/music/fullcombo_img1.gif"                     => "full_combo",
-      "../images/music/fullcombo_img2.gif"                     => "all_just_reflec_full_combo",
-      "../images/music/d_clear_typ_0.gif"                      => "clear",
-      "../images/music/d_clear_typ_1.gif"                      => "hard_clear",
-      "../images/music/d_clear_typ_2.gif"                      => "super_hard_clear",
-    }
-
     def initialize(document)
       @document = Nokogiri::HTML.parse(document)
     end
@@ -34,8 +21,11 @@ module Valanga
     def music_info_box
       @music_info_box ||= music_bk.map do |dl|
         dl.children.select(&:element?).map do |ele|
-          value = (img = ele.search('img')).empty? ? ele.text : img.attribute('src').value
-          IMAGE_TEXT[value] || value
+          if (img = ele.search('img')).empty?
+            ele.text
+          else
+            img.attribute('src').value
+          end
         end
       end
     end
