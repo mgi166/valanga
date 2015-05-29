@@ -1,5 +1,5 @@
 module Valanga
-  class Music
+  class MusicSearcher
     MUSIC_INDEX = "http://p.eagate.573.jp/game/reflec/groovin/p/music/index.html"
 
     def initialize(session)

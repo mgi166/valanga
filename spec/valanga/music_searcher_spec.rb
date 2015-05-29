@@ -1,8 +1,8 @@
-RSpec.describe Valanga::Music do
+RSpec.describe Valanga::MusicSearcher do
   # NOTE: Spec is too slow, so caches the capybara session.
   before(:all) do
     session = Valanga::Client.new(ENV['KID'], ENV['K_PASSWORD']).session
-    @music = Valanga::Music.new(session)
+    @music = Valanga::MusicSearcher.new(session)
   end
 
   describe '#list_musics' do
