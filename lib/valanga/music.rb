@@ -1,5 +1,5 @@
 module Valanga
-  class MusicAttribute
+  class Music
     IMAGE_TEXT = {
       "/game/reflec/groovin/p/images/music/rank/syousai_1.png" => "B",
       "/game/reflec/groovin/p/images/music/rank/syousai_2.png" => "A",

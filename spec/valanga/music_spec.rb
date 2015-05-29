@@ -1,11 +1,11 @@
-RSpec.describe Valanga::MusicAttribute do
+RSpec.describe Valanga::Music do
   describe '#collete' do
     let(:doc) { document('Arousing') }
 
     it do
       expect(
-        Valanga::MusicAttribute.new(doc).collete
-      ).to be_instance_of Valanga::MusicAttribute::Collete
+        Valanga::Music.new(doc).collete
+      ).to be_instance_of Valanga::Music::Collete
     end
   end
 
@@ -14,13 +14,13 @@ RSpec.describe Valanga::MusicAttribute do
 
     it do
       expect(
-        Valanga::MusicAttribute.new(doc).groovin
-      ).to be_instance_of Valanga::MusicAttribute::Groovin
+        Valanga::Music.new(doc).groovin
+      ).to be_instance_of Valanga::Music::Groovin
     end
   end
 
   describe '#has_special?' do
-    subject { Valanga::MusicAttribute.new(doc).has_special? }
+    subject { Valanga::Music.new(doc).has_special? }
 
     context 'when music has a special' do
       let(:doc) { document('Anisakis') }
