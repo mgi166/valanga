@@ -8,6 +8,7 @@ module Valanga
 
       self.rank  = attr.rank
       self.clear = attr.clear
+      self.full_combo = attr.full_combo
     end
 
     module Transformable
@@ -31,6 +32,11 @@ module Valanga
 
       def clear
         text = IMAGE_TEXT.fetch(self['clear'], self['clear'])
+        text == '-' ? nil : text
+      end
+
+      def full_combo
+        text = IMAGE_TEXT.fetch(self['full_combo'], self['full_combo'])
         text == '-' ? nil : text
       end
     end
