@@ -6,6 +6,10 @@ module Valanga
         @groovin = music.groovin.basic
       end
 
+      def difficulty
+        'BASIC'
+      end
+
       def rank
         @groovin.rank || @collete.rank
       end
