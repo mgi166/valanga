@@ -8,6 +8,7 @@ module Valanga
 
       self.rank  = attr.rank
       self.score = attr.score
+      self.achievement_rate = attr.achievement_rate
       self.miss_count = attr.miss_count
       self.play_count = attr.play_count
       self.clear = attr.clear
@@ -35,6 +36,10 @@ module Valanga
 
       def score
         self['score'].to_i
+      end
+
+      def achievement_rate
+        self['achievement_rate'].sub('%', '').to_f
       end
 
       def miss_count
