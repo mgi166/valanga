@@ -5,11 +5,11 @@ module Valanga
     class Base
       extend Forwardable
 
-      def initialize(attribute)
-        @attribute = attribute
+      def initialize(music)
+        @music = music
       end
 
-      def_delegators :@attribute, :has_special?, :music_info_box, :music_bk
+      def_delegators :@music, :has_special?, :music_info_box, :music_bk
     end
   end
 end
