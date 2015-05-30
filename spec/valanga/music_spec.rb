@@ -1,4 +1,44 @@
 RSpec.describe Valanga::Music do
+  describe '#basic' do
+    let(:doc) { document('Arousing') }
+
+    it do
+      expect(
+        Valanga::Music.new(doc).basic
+      ).to be_instance_of Valanga::Difficulty::Basic
+    end
+  end
+
+  describe '#medium' do
+    let(:doc) { document('Arousing') }
+
+    it do
+      expect(
+        Valanga::Music.new(doc).medium
+      ).to be_instance_of Valanga::Difficulty::Medium
+    end
+  end
+
+  describe '#hard' do
+    let(:doc) { document('Arousing') }
+
+    it do
+      expect(
+        Valanga::Music.new(doc).hard
+      ).to be_instance_of Valanga::Difficulty::Hard
+    end
+  end
+
+  describe '#special' do
+    let(:doc) { document('Arousing') }
+
+    it do
+      expect(
+        Valanga::Music.new(doc).special
+      ).to be_instance_of Valanga::Difficulty::Special
+    end
+  end
+
   describe '#collete' do
     let(:doc) { document('Arousing') }
 

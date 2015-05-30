@@ -4,6 +4,22 @@ module Valanga
       @document = Nokogiri::HTML.parse(document)
     end
 
+    def basic
+      Difficulty::Basic.new(self)
+    end
+
+    def medium
+      Difficulty::Medium.new(self)
+    end
+
+    def hard
+      Difficulty::Hard.new(self)
+    end
+
+    def special
+      Difficulty::Special.new(self)
+    end
+
     def collete
       Collete.new(self)
     end
