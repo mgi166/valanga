@@ -21,6 +21,14 @@ module Valanga
           @collete.score
         end
       end
+
+      def achievement_rate
+        if @groovin.achievement_rate >= @collete.achievement_rate
+          @groovin.achievement_rate
+        else
+          @collete.achievement_rate
+        end
+      end
     end
   end
 end

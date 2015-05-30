@@ -18,4 +18,10 @@ RSpec.describe Valanga::Difficulty::Basic do
 
     it { is_expected.to be 378 }
   end
+
+  describe '#achievement_rate' do
+    subject { Valanga::Difficulty::Basic.new(music).achievement_rate }
+
+    it { is_expected.to eq 91.9 }
+  end
 end
