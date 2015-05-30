@@ -6,13 +6,13 @@ module Valanga
       super
       attr = attribute.dup.extend(Transformable)
 
-      self.rank  = attr.rank
-      self.score = attr.score
+      self.rank             = attr.rank
+      self.score            = attr.score
       self.achievement_rate = attr.achievement_rate
-      self.miss_count = attr.miss_count
-      self.play_count = attr.play_count
-      self.clear = attr.clear
-      self.full_combo = attr.full_combo
+      self.miss_count       = attr.miss_count
+      self.play_count       = attr.play_count
+      self.clear            = attr.clear
+      self.full_combo       = attr.full_combo
     end
 
     module Transformable
