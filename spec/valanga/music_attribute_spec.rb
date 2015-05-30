@@ -75,6 +75,44 @@ RSpec.describe Valanga::MusicAttribute do
     end
   end
 
+  describe '#miss_count' do
+    subject { Valanga::MusicAttribute.new(attribute).miss_count }
+
+    context 'not yet play' do
+      let(:attribute) do
+        {
+          'difficulty'       => 'BASIC',
+          'rank'             => '-',
+          'score'            => '-',
+          'achievement_rate' => '-',
+          'miss_count'       => '-',
+          'play_count'       => '-',
+          'clear'            => '-',
+          'full_combo'       => '-',
+        }
+      end
+
+      it { is_expected.to be 0 }
+    end
+
+    context 'when played with miss_count `3`' do
+      let(:attribute) do
+        {
+          'difficulty'       => 'SPECIAL',
+          'rank'             => '/game/reflec/groovin/p/images/music/rank/syousai_3.png',
+          'score'            => '2726',
+          'achievement_rate' => '88.5%',
+          'miss_count'       => '3',
+          'play_count'       => '16',
+          'clear'            => '../images/music/d_clear_typ_0.gif',
+          'full_combo'       => '-',
+        }
+      end
+
+      it { is_expected.to be 3 }
+    end
+  end
+
   describe '#clear' do
     subject { Valanga::MusicAttribute.new(attribute).clear }
 

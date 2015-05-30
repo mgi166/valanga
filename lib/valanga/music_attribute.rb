@@ -8,6 +8,7 @@ module Valanga
 
       self.rank  = attr.rank
       self.score = attr.score
+      self.miss_count = attr.miss_count
       self.clear = attr.clear
       self.full_combo = attr.full_combo
     end
@@ -33,6 +34,10 @@ module Valanga
 
       def score
         self['score'].to_i
+      end
+
+      def miss_count
+        self['miss_count'].to_i
       end
 
       def clear
