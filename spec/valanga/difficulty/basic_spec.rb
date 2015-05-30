@@ -24,4 +24,10 @@ RSpec.describe Valanga::Difficulty::Basic do
 
     it { is_expected.to eq 91.9 }
   end
+
+  describe '#miss_count' do
+    subject { Valanga::Difficulty::Basic.new(music).miss_count }
+
+    it { is_expected.to eq 0 }
+  end
 end

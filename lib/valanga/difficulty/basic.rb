@@ -29,6 +29,18 @@ module Valanga
           @collete.achievement_rate
         end
       end
+
+      def miss_count
+        if [@groovin.miss_count, @collete.miss_count].all?
+          if @groovin.miss_count >= @collete.miss_count
+            @collete.miss_count
+          else
+            @groovin.miss_count
+          end
+        else
+          @groovin.miss_count || @collete.miss_count
+        end
+      end
     end
   end
 end

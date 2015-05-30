@@ -55,7 +55,7 @@ module Valanga
       end
 
       def miss_count
-        self['miss_count'].to_i
+        self['miss_count'] == '-' ? nil : self['miss_count'].to_i
       end
 
       def play_count
@@ -74,7 +74,7 @@ module Valanga
           nil
         elsif text
           text
-        else play_count > 0 && miss_count.zero?
+        else play_count > 0 && miss_count && miss_count.zero?
           'full_combo'
         end
       end
