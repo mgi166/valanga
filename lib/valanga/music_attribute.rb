@@ -57,7 +57,14 @@ module Valanga
 
       def full_combo
         text = IMAGE_TEXT.fetch(self['full_combo'], self['full_combo'])
-        text == '-' ? nil : text
+
+        if text == '-'
+          nil
+        elsif text
+          text
+        else play_count > 0 && miss_count.zero?
+          'full_combo'
+        end
       end
     end
   end

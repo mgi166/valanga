@@ -263,5 +263,19 @@ RSpec.describe Valanga::MusicAttribute do
 
       it { is_expected.to eq 'all_just_reflec_full_combo' }
     end
+
+    context 'when play_count > 0 & miss_count = 0' do
+      let(:attribute) do
+        {
+          "rank"             => "/game/reflec/groovin/p/images/music/rank/syousai_4.png",
+          "score"            => "378",
+          "achievement_rate" => "91.9%",
+          "miss_count"       => "0",
+          "play_count"       => "1",
+        }
+      end
+
+      it { is_expected.to eq 'full_combo' }
+    end
   end
 end
