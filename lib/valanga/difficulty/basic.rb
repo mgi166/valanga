@@ -1,7 +1,13 @@
 module Valanga
   module Difficulty
     class Basic
-      def initialize
+      def initialize(music)
+        @collete = music.collete.basic
+        @groovin = music.groovin.basic
+      end
+
+      def rank
+        @groovin.rank || @collete.rank
       end
     end
   end
