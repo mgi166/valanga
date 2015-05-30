@@ -15,6 +15,18 @@ module Valanga
       self.full_combo       = attr.full_combo
     end
 
+    def cleared?
+      achievement_rate && 70.0 <= achievement_rate
+    end
+
+    def played?
+      play_count > 0
+    end
+
+    def full_combo?
+      ! full_combo.nil?
+    end
+
     module Transformable
       IMAGE_TEXT = {
         "/game/reflec/groovin/p/images/music/rank/syousai_1.png" => "B",
