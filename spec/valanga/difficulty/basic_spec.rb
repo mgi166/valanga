@@ -12,4 +12,10 @@ RSpec.describe Valanga::Difficulty::Basic do
 
     it { is_expected.to eq 'AAA' }
   end
+
+  describe '#score' do
+    subject { Valanga::Difficulty::Basic.new(music).score }
+
+    it { is_expected.to be 378 }
+  end
 end
