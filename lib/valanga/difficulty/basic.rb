@@ -41,6 +41,14 @@ module Valanga
           @groovin.miss_count || @collete.miss_count
         end
       end
+
+      def play_count
+        if @groovin.play_count >= @collete.play_count
+          @groovin.play_count
+        else
+          @collete.play_count
+        end
+      end
     end
   end
 end

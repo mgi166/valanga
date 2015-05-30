@@ -30,4 +30,10 @@ RSpec.describe Valanga::Difficulty::Basic do
 
     it { is_expected.to eq 0 }
   end
+
+  describe '#play_count' do
+    subject { Valanga::Difficulty::Basic.new(music).play_count }
+
+    it { is_expected.to be 1 }
+  end
 end
