@@ -53,6 +53,10 @@ module Valanga
       def clear
         @groovin.clear || @collete.clear
       end
+
+      def full_combo
+        @groovin.full_combo || @collete.full_combo
+      end
     end
   end
 end

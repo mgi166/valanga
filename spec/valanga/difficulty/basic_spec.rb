@@ -42,4 +42,10 @@ RSpec.describe Valanga::Difficulty::Basic do
 
     it { is_expected.to eq 'clear' }
   end
+
+  describe '#full_combo' do
+    subject { Valanga::Difficulty::Basic.new(music).full_combo }
+
+    it { is_expected.to eq 'full_combo' }
+  end
 end
