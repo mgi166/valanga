@@ -34,7 +34,7 @@ RSpec.describe Valanga::Difficulty::Hard do
   describe '#play_count' do
     subject { Valanga::Difficulty::Hard.new(music).play_count }
 
-    it { is_expected.to be 46 }
+    it { is_expected.to be 66 }
   end
 
   describe '#clear' do

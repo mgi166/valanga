@@ -34,11 +34,7 @@ module Valanga
       end
 
       def play_count
-        if groovin.play_count >= collete.play_count
-          groovin.play_count
-        else
-          collete.play_count
-        end
+        groovin.play_count + collete.play_count
       end
 
       def clear
