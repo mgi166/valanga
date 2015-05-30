@@ -36,4 +36,10 @@ RSpec.describe Valanga::Difficulty::Basic do
 
     it { is_expected.to be 1 }
   end
+
+  describe '#clear' do
+    subject { Valanga::Difficulty::Basic.new(music).clear }
+
+    it { is_expected.to eq 'clear' }
+  end
 end

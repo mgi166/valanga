@@ -64,7 +64,14 @@ module Valanga
 
       def clear
         text = IMAGE_TEXT.fetch(self['clear'], self['clear'])
-        text == '-' ? nil : text
+
+        if text == '-'
+          nil
+        elsif text
+          text
+        else achievement_rate && achievement_rate >= 70.0
+          'clear'
+        end
       end
 
       def full_combo

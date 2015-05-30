@@ -49,6 +49,10 @@ module Valanga
           @collete.play_count
         end
       end
+
+      def clear
+        @groovin.clear || @collete.clear
+      end
     end
   end
 end
