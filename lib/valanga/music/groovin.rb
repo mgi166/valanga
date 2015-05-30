@@ -13,19 +13,25 @@ module Valanga
       )
 
       def basic
-        Hash[GROOVIN_KEY.zip(music_info_box[1])]
+        Valanga::MusicAttribute.new(create_attr(1))
       end
 
       def medium
-        Hash[GROOVIN_KEY.zip(music_info_box[2])]
+        Valanga::MusicAttribute.new(create_attr(2))
       end
 
       def hard
-        Hash[GROOVIN_KEY.zip(music_info_box[3])]
+        Valanga::MusicAttribute.new(create_attr(3))
       end
 
       def special
-        Hash[GROOVIN_KEY.zip(music_info_box[4])] if has_special?
+        Valanga::MusicAttribute.new(create_attr(4)) if has_special?
+      end
+
+      private
+
+      def create_attr(index)
+        Hash[GROOVIN_KEY.zip(music_info_box[index])]
       end
     end
   end
