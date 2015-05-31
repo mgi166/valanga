@@ -1,7 +1,7 @@
 require "valanga/version"
 require "valanga/error"
 require "valanga/client"
-require "valanga/music_searcher"
+require "valanga/music_search"
 require "valanga/music"
 require "valanga/music/base"
 require "valanga/music/groovin"
