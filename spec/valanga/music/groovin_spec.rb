@@ -5,20 +5,7 @@ RSpec.describe Valanga::Music::Groovin do
     context 'Arousing' do
       let(:attribute) { Valanga::Music.new(document('Arousing')) }
 
-      it do
-        is_expected.to eq(
-          {
-            'difficulty'       => 'BASIC',
-            'rank'             => '-',
-            'score'            => '-',
-            'achievement_rate' => '-',
-            'miss_count'       => '-',
-            'play_count'       => '-',
-            'clear'            => '-',
-            'full_combo'       => '-',
-          }
-        )
-      end
+      it { is_expected.to be_instance_of Valanga::MusicAttribute }
     end
   end
 
@@ -28,20 +15,7 @@ RSpec.describe Valanga::Music::Groovin do
     context 'Arousing' do
       let(:attribute) { Valanga::Music.new(document('Arousing')) }
 
-      it do
-        is_expected.to eq(
-          {
-            'difficulty'       => 'MEDIUM',
-            'rank'             => '-',
-            'score'            => '-',
-            'achievement_rate' => '-',
-            'miss_count'       => '-',
-            'play_count'       => '-',
-            'clear'            => '-',
-            'full_combo'       => '-',
-          }
-        )
-      end
+      it { is_expected.to be_instance_of Valanga::MusicAttribute }
     end
   end
 
@@ -51,39 +25,13 @@ RSpec.describe Valanga::Music::Groovin do
     context 'Arousing' do
       let(:attribute) { Valanga::Music.new(document('Arousing')) }
 
-      it do
-        is_expected.to eq(
-          {
-            'difficulty'       => 'HARD',
-            'rank'             => '/game/reflec/groovin/p/images/music/rank/syousai_5.png',
-            'score'            => '1615',
-            'achievement_rate' => '98.4%',
-            'miss_count'       => '0',
-            'play_count'       => '20',
-            'clear'            => '../images/music/d_clear_typ_0.gif',
-            'full_combo'       => '../images/music/fullcombo_img2.gif',
-          }
-        )
-      end
+      it { is_expected.to be_instance_of Valanga::MusicAttribute }
     end
 
     context 'Anisakis' do
       let(:attribute) { Valanga::Music.new(document('Anisakis')) }
 
-      it do
-        is_expected.to eq(
-          {
-            'difficulty'       => 'HARD',
-            'rank'             => '/game/reflec/groovin/p/images/music/rank/syousai_4.png',
-            'score'            => '2069',
-            'achievement_rate' => '93.9%',
-            'miss_count'       => '4',
-            'play_count'       => '10',
-            'clear'            => '../images/music/d_clear_typ_1.gif',
-            'full_combo'       => '-',
-          }
-        )
-      end
+      it { is_expected.to be_instance_of Valanga::MusicAttribute }
     end
   end
 
@@ -93,26 +41,13 @@ RSpec.describe Valanga::Music::Groovin do
     context 'Arousing' do
       let(:attribute) { Valanga::Music.new(document('Arousing')) }
 
-      it { is_expected.to be nil }
+      it { is_expected.to be_instance_of Valanga::MusicAttribute }
     end
 
     context 'Anisakis' do
       let(:attribute) { Valanga::Music.new(document('Anisakis')) }
 
-      it do
-        is_expected.to eq(
-          {
-            'difficulty'       => 'SPECIAL',
-            'rank'             => '/game/reflec/groovin/p/images/music/rank/syousai_3.png',
-            'score'            => '2726',
-            'achievement_rate' => '88.5%',
-            'miss_count'       => '3',
-            'play_count'       => '16',
-            'clear'            => '../images/music/d_clear_typ_0.gif',
-            'full_combo'       => '-',
-          }
-        )
-      end
+      it { is_expected.to be_instance_of Valanga::MusicAttribute }
     end
   end
 end
