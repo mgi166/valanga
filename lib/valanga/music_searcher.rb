@@ -20,7 +20,17 @@ module Valanga
         @session.visit(music_url(page: page))
 
         begin
-          @session.click_link(music_name)
+          @session.find("#music_table1")
+        rescue Capybara::ElementNotFound
+          # TODO: set backtrace
+          raise Valanga::NoMusicInformationError
+        end
+
+        begin
+          @session.within("#music_table1") do
+            @session.click_link(music_name)
+          end
+
           src = @session.find(:css, "iframe")['src']
           @session.visit(info_url(src))
 

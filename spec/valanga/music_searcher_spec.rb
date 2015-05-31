@@ -75,5 +75,13 @@ RSpec.describe Valanga::MusicSearcher do
         ).to be_instance_of Valanga::Music
       end
     end
+
+    context 'when does not find the music' do
+      it do
+        expect do
+          @music_searcher['muuuusic']
+        end.to raise_error Valanga::NoMusicInformationError
+      end
+    end
   end
 end
