@@ -1,7 +1,7 @@
 module Valanga
   class Music
     def initialize(document)
-      @document = Nokogiri::HTML.parse(document)
+      @document = Nokogiri::HTML.parse(document, nil, 'Shift_JIS')
     end
 
     def basic

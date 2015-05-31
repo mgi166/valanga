@@ -6,6 +6,14 @@ RSpec.describe Valanga::Music::Groovin do
       let(:attribute) { Valanga::Music.new(document('Arousing')) }
 
       it { is_expected.to be_instance_of Valanga::MusicAttribute }
+
+      it 'name is `Arousing`' do
+        expect(subject.name).to eq 'Arousing'
+      end
+
+      it 'artist is `DJ TOTTO feat.吉河順央`' do
+        expect(subject.artist).to eq 'DJ TOTTO feat.吉河順央'
+      end
     end
   end
 
