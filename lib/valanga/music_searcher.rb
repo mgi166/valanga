@@ -42,6 +42,8 @@ module Valanga
         page += 1
       end
     end
+    alias_method :search, :[]
+    alias_method :find_music, :[]
 
     private
 
