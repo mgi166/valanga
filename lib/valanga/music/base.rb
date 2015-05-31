@@ -9,7 +9,7 @@ module Valanga
         @music = music
       end
 
-      def_delegators :@music, :has_special?, :music_info_box, :music_bk
+      def_delegators :@music, :has_special?, :name, :artist, :music_info_box, :music_bk
     end
   end
 end
