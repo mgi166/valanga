@@ -1,6 +1,14 @@
 module Valanga
   module Difficulty
     class Base
+      def name
+        groovin.name || collete.name
+      end
+
+      def artist
+        groovin.artist || collete.artist
+      end
+
       def rank
         groovin.rank || collete.rank
       end
