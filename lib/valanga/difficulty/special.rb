@@ -4,7 +4,6 @@ module Valanga
   module Difficulty
     class Special < Base
       extend Forwardable
-      attr_reader :collete, :groovin
 
       def initialize(music)
         @groovin = music.groovin.special
