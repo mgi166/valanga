@@ -1,14 +1,10 @@
 module Valanga
-  class MusicSearcher
+  module MusicSearch
     MUSIC_INDEX = "http://p.eagate.573.jp/game/reflec/groovin/p/music/index.html"
 
-    def initialize(session)
-      @session = session
-    end
-
     def list_musics(page: nil, sorttype: nil, sort: nil)
-      @session.visit(music_url(page: page, sorttype: sorttype, sort: sort))
-      html = Nokogiri::HTML.parse(@session.html)
+      session.visit(music_url(page: page, sorttype: sorttype, sort: sort))
+      html = Nokogiri::HTML.parse(session.html)
       html.css("#music_table1 td.music_jkimg a").map(&:text).map(&:strip)
     end
 
@@ -17,23 +13,23 @@ module Valanga
 
       # NOTE: 20 or more pages does not exist.
       while page < 20 do
-        @session.visit(music_url(page: page))
+        session.visit(music_url(page: page))
 
         begin
-          @session.find("#music_table1")
+          session.find("#music_table1")
         rescue Capybara::ElementNotFound
           raise Valanga::NotFoundMusicTable, 'Not found music score table(id=music_table1)'
         end
 
         begin
-          @session.within("#music_table1") do
-            @session.click_link(music_name)
+          session.within("#music_table1") do
+            session.click_link(music_name)
           end
 
-          src = @session.find(:css, "iframe")['src']
-          @session.visit(info_url(src))
+          src = session.find(:css, "iframe")['src']
+          session.visit(info_url(src))
 
-          return Music.new(@session.html)
+          return Music.new(session.html)
         rescue Capybara::ElementNotFound
           # if link is not found, go next page.
         end
