@@ -23,9 +23,8 @@ module Valanga
           @session.click_link(music_name)
           src = @session.find(:css, "iframe")['src']
           @session.visit(info_url(src))
-          MusicAttribute.new(@session.html)
 
-          break
+          return Music.new(@session.html)
         rescue Capybara::ElementNotFound
           # if link is not found, go next page.
         end

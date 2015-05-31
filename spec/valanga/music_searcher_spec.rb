@@ -68,9 +68,11 @@ RSpec.describe Valanga::MusicSearcher do
   end
 
   describe '#[]' do
-    context 'description' do
+    context 'when finds the music' do
       it do
-        @music_searcher['RPG']
+        expect(
+          @music_searcher['RPG']
+        ).to be_instance_of Valanga::Music
       end
     end
   end
