@@ -76,6 +76,14 @@ RSpec.describe Valanga::MusicSearcher do
       end
     end
 
+    context 'when finds the music (page=2)' do
+      it do
+        expect(
+          @music_searcher['鬼天']
+        ).to be_instance_of Valanga::Music
+      end
+    end
+
     context 'when does not find the music' do
       it do
         expect do
