@@ -32,6 +32,14 @@ module Valanga
       music_bk.size == 9
     end
 
+    def name
+      @name ||= @document.css("div.music_dataname h6").text
+    end
+
+    def artist
+      @artist ||= @document.css("div.music_artist h6").text
+    end
+
     private
 
     def music_info_box
