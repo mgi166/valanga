@@ -22,8 +22,7 @@ module Valanga
         begin
           @session.find("#music_table1")
         rescue Capybara::ElementNotFound
-          # TODO: set backtrace
-          raise Valanga::NoMusicInformationError
+          raise Valanga::NotFoundMusicTable, 'Not found music score table(id=music_table1)'
         end
 
         begin

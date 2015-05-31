@@ -88,7 +88,7 @@ RSpec.describe Valanga::MusicSearcher do
       it do
         expect do
           @music_searcher['muuuusic']
-        end.to raise_error Valanga::NoMusicInformationError
+        end.to raise_error Valanga::NotFoundMusicTable
       end
     end
   end
