@@ -11,25 +11,43 @@ module Valanga
 
       def basic
         if has_special?
-          MusicAttribute.new(create_attr(6))
+          MusicAttribute.new(create_attr(6)).tap do |attr|
+            attr.name   = name
+            attr.artist = artist
+          end
         else
-          MusicAttribute.new(create_attr(5))
+          MusicAttribute.new(create_attr(5)).tap do |attr|
+            attr.name   = name
+            attr.artist = artist
+          end
         end
       end
 
       def medium
         if has_special?
-          MusicAttribute.new(create_attr(7))
+          MusicAttribute.new(create_attr(7)).tap do |attr|
+            attr.name   = name
+            attr.artist = artist
+          end
         else
-          MusicAttribute.new(create_attr(6))
+          MusicAttribute.new(create_attr(6)).tap do |attr|
+            attr.name   = name
+            attr.artist = artist
+          end
         end
       end
 
       def hard
         if has_special?
-          MusicAttribute.new(create_attr(8))
+          MusicAttribute.new(create_attr(8)).tap do |attr|
+            attr.name   = name
+            attr.artist = artist
+          end
         else
-          MusicAttribute.new(create_attr(7))
+          MusicAttribute.new(create_attr(7)).tap do |attr|
+            attr.name   = name
+            attr.artist = artist
+          end
         end
       end
 

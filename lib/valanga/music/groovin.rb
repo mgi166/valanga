@@ -13,19 +13,33 @@ module Valanga
       )
 
       def basic
-        Valanga::MusicAttribute.new(create_attr(1))
+        Valanga::MusicAttribute.new(create_attr(1)).tap do |attr|
+          attr.name   = name
+          attr.artist = artist
+        end
       end
 
       def medium
-        Valanga::MusicAttribute.new(create_attr(2))
+        Valanga::MusicAttribute.new(create_attr(2)).tap do |attr|
+          attr.name   = name
+          attr.artist = artist
+        end
       end
 
       def hard
-        Valanga::MusicAttribute.new(create_attr(3))
+        Valanga::MusicAttribute.new(create_attr(3)).tap do |attr|
+          attr.name   = name
+          attr.artist = artist
+        end
       end
 
       def special
-        Valanga::MusicAttribute.new(create_attr(4)) if has_special?
+        if has_special?
+          Valanga::MusicAttribute.new(create_attr(4)).tap do |attr|
+            attr.name   = name
+            attr.artist = artist
+          end
+        end
       end
 
       private
