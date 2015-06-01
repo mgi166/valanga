@@ -3,7 +3,7 @@ require 'capybara/poltergeist'
 
 module Valanga
   class Client
-    include MusicSearch
+    include Valanga::MusicSearch
 
     LOGIN_PAGE  = "https://p.eagate.573.jp/gate/p/login.html"
 
