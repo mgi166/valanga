@@ -42,6 +42,24 @@ module Valanga
 
     private
 
+    def page_sessions(&block)
+      page = 1
+
+      while page < 20 do
+        session.visit(music_url(page: page))
+
+        begin
+          session.find("#music_table1")
+        rescue Capybara::ElementNotFound
+          raise Valanga::NotFoundMusicTable, 'Not found music score table(id=music_table1)'
+        end
+
+        yield session
+
+        page += 1
+      end
+    end
+
     def info_url(src)
       "http://p.eagate.573.jp/game/reflec/groovin/p/music/#{src}"
     end
