@@ -1,5 +1,13 @@
 # Valanga
 
+A Ruby client for [REFLEC BEAT](http://p.eagate.573.jp/game/reflec/groovin/p/index.html)
+
+## Usage
+
+## Dependency
+
+* [PhantomJS](http://phantomjs.org/)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -15,8 +23,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install valanga
-
-## Usage
 
 ## Contributing
 
