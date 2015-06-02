@@ -30,7 +30,7 @@ module Valanga
       @session.click_on "規約に同意してログイン"
 
       unless @session.current_path == "/gate/p/mypage/index.html"
-        raise LoginError, session.find(:xpath, '//div[@class="error_text_box"]/p').text
+        raise LoginError, session.find(:css, 'div.error_text_box').text
       end
     end
   end
