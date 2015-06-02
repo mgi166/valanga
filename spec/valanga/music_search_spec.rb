@@ -91,9 +91,9 @@ RSpec.describe Valanga::MusicSearch do
 
     context 'when does not find the music' do
       it do
-        expect do
+        expect(
           @music_searcher['muuuusic']
-        end.to raise_error Valanga::NotFoundMusicTable
+        ).to be nil
       end
     end
   end
