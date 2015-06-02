@@ -5,12 +5,18 @@ module Valanga
     def list_musics(page: nil, sorttype: nil, sort: nil)
       musics = []
 
-      page_sessions do |session|
+      if [page, sorttype, sort].none?
+        page_sessions do |session|
+          html = Nokogiri::HTML.parse(session.html)
+          musics << html.css("#music_table1 td.music_jkimg a").map(&:text).map(&:strip)
+        end
+      else
+        session.visit(music_url(page: page, sorttype: sorttype, sort: sort))
         html = Nokogiri::HTML.parse(session.html)
         musics << html.css("#music_table1 td.music_jkimg a").map(&:text).map(&:strip)
       end
 
-      musics
+      musics.flatten
     end
 
     def [](music_name)
