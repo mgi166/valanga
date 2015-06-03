@@ -84,6 +84,12 @@ Or install it yourself as:
 
     $ gem install valanga
 
+## What's valanga?
+
+One of the My favorite music. But it is too week point...  
+The meaning of `valanga` is snowslide in Italy.
+
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/valanga/fork )
