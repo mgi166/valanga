@@ -2,6 +2,8 @@
 
 A Ruby client for [REFLEC BEAT](http://p.eagate.573.jp/game/reflec/groovin/p/index.html)
 
+![](https://raw.githubusercontent.com/mgi166/valanga/master/img/Valanga.png)
+
 ## Dependency
 
 * [PhantomJS](http://phantomjs.org/)
@@ -83,12 +85,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install valanga
-
-## What's valanga?
-
-One of the My favorite music. But it is too week point...  
-The meaning of `valanga` is snowslide in Italy.
-
 
 ## Contributing
 
