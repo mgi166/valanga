@@ -20,7 +20,9 @@ module Valanga
     end
 
     def search(music_name)
-      return create_music(info_url) if info_url = pages[music_name]
+      if url = pages[music_name]
+        return create_music(url)
+      end
 
       page_sessions do |session|
         begin
