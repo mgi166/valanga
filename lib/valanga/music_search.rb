@@ -19,7 +19,7 @@ module Valanga
       musics.flatten
     end
 
-    def [](music_name)
+    def search(music_name)
       return create_music(info_url) if info_url = pages[music_name]
 
       page_sessions do |session|
@@ -37,8 +37,8 @@ module Valanga
         end
       end
     end
-    alias_method :search, :[]
-    alias_method :find_music, :[]
+    alias_method :[], :search
+    alias_method :find_music, :search
 
     private
 
