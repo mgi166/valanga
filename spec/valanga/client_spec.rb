@@ -3,7 +3,7 @@ RSpec.describe Valanga::Client do
     context 'when loggin successful' do
       it do
         expect do
-          Valanga::Client.new(ENV['KID'], ENV['K_PASSWORD'])
+          Valanga::Client.new
         end.not_to raise_error
       end
     end

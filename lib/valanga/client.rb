@@ -9,7 +9,7 @@ module Valanga
 
     attr_reader :session, :pages
 
-    def initialize(username, password)
+    def initialize(username = nil, password = nil)
       Capybara.register_driver :poltergeist do |app|
         Capybara::Poltergeist::Driver.new(app, js_errors: false)
       end
@@ -25,8 +25,8 @@ module Valanga
     def login!(username, password)
       @session.visit LOGIN_PAGE
 
-      @session.fill_in 'KID', with: username
-      @session.fill_in 'pass', with: password
+      @session.fill_in 'KID', with: username || ENV['KONAMI_ID']
+      @session.fill_in 'pass', with: password || ENV['KONAMI_PASSWORD']
 
       @session.click_on "規約に同意してログイン"
 
