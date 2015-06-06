@@ -20,26 +20,20 @@ module Valanga
     end
 
     def [](music_name)
-      if info_url = pages[music_name]
-        session.visit(info_url(src))
-        return Music.new(session.html)
-      else
-        page_sessions do |session|
-          begin
-            session.within("#music_table1") do
-              session.click_link(music_name)
-            end
+      return create_music(info_url) if info_url = pages[music_name]
 
-            src = session.find(:css, "iframe")['src']
-
-            pages[music_name] = info_url(src)
-
-            session.visit(info_url(src))
-
-            return Music.new(session.html)
-          rescue Capybara::ElementNotFound
-            # if link is not found, go next page.
+      page_sessions do |session|
+        begin
+          session.within("#music_table1") do
+            session.click_link(music_name)
           end
+
+          src = session.find(:css, "iframe")['src']
+          pages[music_name] = info_url(src)
+
+          return create_music(info_url(src))
+        rescue Capybara::ElementNotFound
+          # if link is not found, go next page.
         end
       end
     end
@@ -47,6 +41,11 @@ module Valanga
     alias_method :find_music, :[]
 
     private
+
+    def create_music(info_url)
+      session.visit(info_url)
+      Music.new(session.html)
+    end
 
     def page_sessions(&block)
       page = 1
