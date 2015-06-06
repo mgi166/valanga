@@ -20,18 +20,26 @@ module Valanga
     end
 
     def [](music_name)
-      page_sessions do |session|
-        begin
-          session.within("#music_table1") do
-            session.click_link(music_name)
+      if info_url = pages[music_name]
+        session.visit(info_url(src))
+        return Music.new(session.html)
+      else
+        page_sessions do |session|
+          begin
+            session.within("#music_table1") do
+              session.click_link(music_name)
+            end
+
+            src = session.find(:css, "iframe")['src']
+
+            pages[music_name] = info_url(src)
+
+            session.visit(info_url(src))
+
+            return Music.new(session.html)
+          rescue Capybara::ElementNotFound
+            # if link is not found, go next page.
           end
-
-          src = session.find(:css, "iframe")['src']
-          session.visit(info_url(src))
-
-          return Music.new(session.html)
-        rescue Capybara::ElementNotFound
-          # if link is not found, go next page.
         end
       end
     end
