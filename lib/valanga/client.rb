@@ -7,7 +7,7 @@ module Valanga
 
     LOGIN_PAGE  = "https://p.eagate.573.jp/gate/p/login.html"
 
-    attr_reader :session
+    attr_reader :session, :pages
 
     def initialize(username, password)
       Capybara.register_driver :poltergeist do |app|
@@ -15,6 +15,7 @@ module Valanga
       end
 
       @session = Capybara::Session.new(:poltergeist)
+      @pages   = {}
 
       login!(username, password)
     end
