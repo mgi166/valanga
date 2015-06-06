@@ -52,6 +52,18 @@ module Valanga
       def full_combo
         groovin.full_combo || collete.full_combo
       end
+
+      def cleared?
+        achievement_rate && 70.0 <= achievement_rate
+      end
+
+      def played?
+        play_count > 0
+      end
+
+      def full_combo?
+        ! full_combo.nil?
+      end
     end
   end
 end
