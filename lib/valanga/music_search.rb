@@ -41,6 +41,25 @@ module Valanga
     alias_method :[], :search
     alias_method :find_music, :search
 
+    def music_image_url(music_name)
+      if music_id = pages[music_name]
+        return image_url(music_id)
+      end
+
+      page_sessions do |session|
+        begin
+          session.within("#music_table1") do
+            on_click = session.find_link(music_name)['onClick']
+            music_id = $1 if on_click =~ /id=([\w%]+)/
+            pages[music_name] = music_id
+            return image_url(music_id)
+          end
+        rescue Capybara::ElementNotFound
+          # if link is not found, go next page.
+        end
+      end
+    end
+
     private
 
     def create_music(music_id)

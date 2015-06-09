@@ -103,4 +103,22 @@ RSpec.describe Valanga::MusicSearch do
       end
     end
   end
+
+  describe '#music_image_url' do
+    context 'when finds the music' do
+      it do
+        expect(
+          @music_searcher.music_image_url('愛は不死鳥の様に')
+        ).to eq 'http://p.eagate.573.jp/game/reflec/groovin/p/images/binary.html?img=sXEPaas8apvqg8BnZ5drKuUHpNt%2FY1N6%2FlbAdjzBE6w%3D'
+      end
+    end
+
+    context 'when finds the music (page=2)' do
+      it do
+        expect(
+          @music_searcher.music_image_url('朧')
+        ).to eq 'http://p.eagate.573.jp/game/reflec/groovin/p/images/binary.html?img=h1Qz2wJDnzV6GI1YiQFB5dXowq2lHWQYLgrIgHJX%2FxM%3D'
+      end
+    end
+  end
 end
