@@ -67,6 +67,10 @@ module Valanga
       end
     end
 
+    def image_url(music_id)
+      "http://p.eagate.573.jp/game/reflec/groovin/p/images/binary.html?img=#{music_id}"
+    end
+
     def info_url(music_id)
       "http://p.eagate.573.jp/game/reflec/groovin/p/music/m_info.html?id=#{music_id}"
     end
