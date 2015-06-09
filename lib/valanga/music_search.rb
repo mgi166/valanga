@@ -21,7 +21,7 @@ module Valanga
 
     def search(music_name)
       if music_id = pages[music_name]
-        return create_music(info_url(music_id))
+        return create_music(music_id)
       end
 
       page_sessions do |session|
@@ -32,7 +32,7 @@ module Valanga
 
           pages[music_name] = music_id(session)
 
-          return create_music(info_url(pages[music_name]))
+          return create_music(pages[music_name])
         rescue Capybara::ElementNotFound
           # if link is not found, go next page.
         end
@@ -43,8 +43,9 @@ module Valanga
 
     private
 
-    def create_music(info_url)
-      session.visit(info_url)
+    def create_music(music_id)
+      info = info_url(music_id)
+      session.visit(info)
       Music.new(session.html)
     end
 
