@@ -20,8 +20,8 @@ module Valanga
     end
 
     def search(music_name)
-      if url = pages[music_name]
-        return create_music(url)
+      if music_id = pages[music_name]
+        return create_music(info_url(music_id))
       end
 
       page_sessions do |session|
@@ -32,7 +32,7 @@ module Valanga
 
           pages[music_name] = music_id(session)
 
-          return create_music(info_url(src))
+          return create_music(info_url(pages[music_name]))
         rescue Capybara::ElementNotFound
           # if link is not found, go next page.
         end
@@ -66,8 +66,8 @@ module Valanga
       end
     end
 
-    def info_url(src)
-      "http://p.eagate.573.jp/game/reflec/groovin/p/music/#{src}"
+    def info_url(music_id)
+      "http://p.eagate.573.jp/game/reflec/groovin/p/music/m_info.html?id=#{music_id}"
     end
 
     def music_url(page: nil, sorttype: nil, sort: nil)
