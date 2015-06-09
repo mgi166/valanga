@@ -1,4 +1,7 @@
 # Valanga
+[![Gem Version](https://badge.fury.io/rb/valanga.svg)](http://badge.fury.io/rb/valanga)
+[![Gemnasium](https://gemnasium.com/mgi166/valanga.svg)](https://gemnasium.com/mgi166/valanga)
+[![Code Climate](https://codeclimate.com/github/mgi166/valanga/badges/gpa.svg)](https://codeclimate.com/github/mgi166/valanga)
 
 A Ruby client for [REFLEC BEAT](http://p.eagate.573.jp/game/reflec/groovin/p/index.html)
 
