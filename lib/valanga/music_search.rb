@@ -30,8 +30,7 @@ module Valanga
             session.click_link(music_name)
           end
 
-          src = session.find(:css, "iframe")['src']
-          pages[music_name] = info_url(src)
+          pages[music_name] = music_id(session)
 
           return create_music(info_url(src))
         rescue Capybara::ElementNotFound
@@ -91,6 +90,11 @@ module Valanga
           sort: valid_sorts[sort.to_s]
         }.map { |k, v| "#{k}=#{v}" }.join('&')
       end
+    end
+
+    def music_id(session)
+      src = session.find(:css, "iframe")['src']
+      src.to_s.split('=').last
     end
 
     def valid_sorttypes
