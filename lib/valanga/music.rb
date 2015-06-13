@@ -2,7 +2,14 @@ module Valanga
   class Music
     def initialize(document)
       @document = Nokogiri::HTML.parse(document, nil, 'Shift_JIS')
+      @music_bk = @document.css("div.music_bk dl")
+
+      unless @music_bk.size == 8 || @music_bk.size == 9
+        raise NoMusicInformationError, "Not found music informations"
+      end
     end
+
+    attr_reader :music_bk
 
     def basic
       Difficulty::Basic.new(self)
@@ -52,18 +59,6 @@ module Valanga
           end
         end
       end
-    end
-
-    def music_bk
-      return @music_bk if defined? @music_bk
-
-      music_bk = @document.css("div.music_bk dl")
-
-      unless music_bk.size == 8 || music_bk.size == 9
-        raise NoMusicInformationError, "Not found music informations"
-      end
-
-      @music_bk = music_bk
     end
   end
 end

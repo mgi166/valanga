@@ -1,4 +1,24 @@
 RSpec.describe Valanga::Music do
+  describe '.new' do
+    subject { Valanga::Music.new(doc) }
+
+    context 'when music is found' do
+      let(:doc) { document('Arousing') }
+
+      it { is_expected.to be_instance_of Valanga::Music }
+    end
+
+    context 'when music is not found' do
+      let(:doc) { document('not_found_music') }
+
+      it do
+        expect do
+          subject
+        end.to raise_error Valanga::NoMusicInformationError
+      end
+    end
+  end
+
   describe '#basic' do
     let(:doc) { document('Arousing') }
 
