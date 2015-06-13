@@ -20,7 +20,7 @@ module Valanga
     end
 
     def search(music_name)
-      if music_id = pages[music_name]
+      if music_id = music_ids[music_name]
         return create_music(music_id)
       end
 
@@ -30,9 +30,9 @@ module Valanga
             session.click_link(music_name)
           end
 
-          pages[music_name] = music_id(session)
+          music_ids[music_name] = music_id(session)
 
-          return create_music(pages[music_name])
+          return create_music(music_ids[music_name])
         rescue Capybara::ElementNotFound
           # if link is not found, go next page.
         end
@@ -42,7 +42,7 @@ module Valanga
     alias_method :find_music, :search
 
     def music_image_url(music_name)
-      if music_id = pages[music_name]
+      if music_id = music_ids[music_name]
         return image_url(music_id)
       end
 
@@ -51,7 +51,7 @@ module Valanga
           session.within("#music_table1") do
             on_click = session.find_link(music_name)['onClick']
             music_id = $1 if on_click =~ /id=([\w%]+)/
-            pages[music_name] = music_id
+            music_ids[music_name] = music_id
             return image_url(music_id)
           end
         rescue Capybara::ElementNotFound
