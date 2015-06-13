@@ -15,9 +15,14 @@ A Ruby client for [REFLEC BEAT](http://p.eagate.573.jp/game/reflec/groovin/p/ind
 ### Prepare
 Create `Valanga::Client` instance.  
 The arguments of `name_or_email` is `KONAMI ID` or `email` that you registered.  
+  
+If you set environment variables `KONAMI_ID` and `KONAMI_PASSWORD`, Valanga::Client uses the values for credentials.  
 
 ```ruby
 client = Valanga::Client.new(name_or_email, password)
+
+# Use ENV['KONAMI_ID'], ENV['KONAMI_PASSWORD'] if client received no arguments.
+client = Valanga::Client.new
 ```
 
 ### Fetch all music names
@@ -25,6 +30,16 @@ client = Valanga::Client.new(name_or_email, password)
 ```ruby
 client.list_musics
 #=> ["Artifacter", "Army of Marionette", "RPG", "アイネクライネ", ....]
+```
+
+### Fetch music names specified page, sorttype, and sort
+
+```ruby
+client.musics_at(page: 3)
+#=> ["踊るフィーバーロボ", "鬼天", "朧", ...]
+
+client.musics_at(sorttype: :special, sort: :desc)
+#=> ["Butter-Fly", "七転八起☆至上主義！", "嘘", ...]
 ```
 
 ### Search music
