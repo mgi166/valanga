@@ -49,7 +49,7 @@ RSpec.describe Valanga::Music::Groovin do
     context 'Arousing' do
       let(:attribute) { Valanga::Music.new(document('Arousing')) }
 
-      it { is_expected.to be_instance_of Valanga::MusicAttribute }
+      it { is_expected.to be nil }
     end
 
     context 'Anisakis' do
