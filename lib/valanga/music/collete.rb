@@ -11,50 +11,35 @@ module Valanga
 
       def basic
         if has_special?
-          MusicAttribute.new(create_attr(6)).tap do |attr|
-            attr.name   = name
-            attr.artist = artist
-          end
+          MusicAttribute.new(create_attr(6))
         else
-          MusicAttribute.new(create_attr(5)).tap do |attr|
-            attr.name   = name
-            attr.artist = artist
-          end
+          MusicAttribute.new(create_attr(5))
         end
       end
 
       def medium
         if has_special?
-          MusicAttribute.new(create_attr(7)).tap do |attr|
-            attr.name   = name
-            attr.artist = artist
-          end
+          MusicAttribute.new(create_attr(7))
         else
-          MusicAttribute.new(create_attr(6)).tap do |attr|
-            attr.name   = name
-            attr.artist = artist
-          end
+          MusicAttribute.new(create_attr(6))
         end
       end
 
       def hard
         if has_special?
-          MusicAttribute.new(create_attr(8)).tap do |attr|
-            attr.name   = name
-            attr.artist = artist
-          end
+          MusicAttribute.new(create_attr(8))
         else
-          MusicAttribute.new(create_attr(7)).tap do |attr|
-            attr.name   = name
-            attr.artist = artist
-          end
+          MusicAttribute.new(create_attr(7))
         end
       end
 
       private
 
       def create_attr(index)
-        Hash[COLLETE_KEY.zip(music_info_box[index])]
+        Hash[COLLETE_KEY.zip(music_info_box[index])].merge(
+          'name'   => name,
+          'artist' => artist,
+        )
       end
     end
   end
