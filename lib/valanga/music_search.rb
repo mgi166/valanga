@@ -14,11 +14,9 @@ module Valanga
     end
 
     def musics_at(page: nil, sorttype: nil, sort: nil)
-      [].tap do |result|
-        session.visit(music_url(page: page, sorttype: sorttype, sort: sort))
-        html = Nokogiri::HTML.parse(session.html)
-        result << html.css("#music_table1 td.music_jkimg a").map(&:text).map(&:strip)
-      end.flatten
+      session.visit(music_url(page: page, sorttype: sorttype, sort: sort))
+      html = Nokogiri::HTML.parse(session.html)
+      html.css("#music_table1 td.music_jkimg a").map(&:text).map(&:strip)
     end
 
     def search(music_name)
