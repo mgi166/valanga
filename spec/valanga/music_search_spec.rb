@@ -17,35 +17,37 @@ RSpec.describe Valanga::MusicSearch do
   end
 
   describe '#list_musics' do
+    it do
+      expect do
+        @music_searcher.list_musics
+      end.not_to raise_error
+    end
+  end
+
+  describe '#musics_at' do
     context 'with valid parameters' do
       it do
         expect do
-          @music_searcher.list_musics
+          @music_searcher.musics_at(page: 1)
         end.not_to raise_error
       end
 
       it do
         expect do
-          @music_searcher.list_musics(page: 1)
+          @music_searcher.musics_at(sorttype: :music_name)
         end.not_to raise_error
       end
 
       it do
         expect do
-          @music_searcher.list_musics(sorttype: :music_name)
-        end.not_to raise_error
-      end
-
-      it do
-        expect do
-          @music_searcher.list_musics(sort: :asc)
+          @music_searcher.musics_at(sort: :asc)
         end.not_to raise_error
       end
 
       context 'when page is over' do
         it do
           expect(
-            @music_searcher.list_musics(page: 10000)
+            @music_searcher.musics_at(page: 10000)
           ).to eq []
         end
       end
@@ -55,7 +57,7 @@ RSpec.describe Valanga::MusicSearch do
       context 'given `page` is not integer' do
         it do
           expect do
-            @music_searcher.list_musics(page: "aaa")
+            @music_searcher.musics_at(page: "aaa")
           end.to raise_error ArgumentError
         end
       end
@@ -63,7 +65,7 @@ RSpec.describe Valanga::MusicSearch do
       context 'given `sorttype` is not included in `music_name` or `basic` or ` medium` or `hard` or `special`' do
         it do
           expect do
-            @music_searcher.list_musics(sorttype: "aaa")
+            @music_searcher.musics_at(sorttype: "aaa")
           end.to raise_error ArgumentError
         end
       end
@@ -71,7 +73,7 @@ RSpec.describe Valanga::MusicSearch do
       context 'given `sort` is not included in `asc` or `desc`' do
         it do
           expect do
-            @music_searcher.list_musics(sort: "aaa")
+            @music_searcher.musics_at(sort: "aaa")
           end.to raise_error ArgumentError
         end
       end

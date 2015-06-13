@@ -2,7 +2,7 @@ module Valanga
   module MusicSearch
     MUSIC_INDEX = "http://p.eagate.573.jp/game/reflec/groovin/p/music/index.html"
 
-    def list_musics(page: nil, sorttype: nil, sort: nil)
+    def list_musics
       musics = []
 
       page_sessions do |session|
