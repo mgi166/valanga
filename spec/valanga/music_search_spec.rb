@@ -4,14 +4,14 @@ RSpec.describe Valanga::MusicSearch do
     @music_searcher = Class.new do
       include Valanga::MusicSearch
       attr_accessor :session
-      attr_reader :pages
+      attr_reader :music_ids
 
       def initialize
-        @pages = {}
+        @music_ids = {}
       end
 
       def session
-        @session ||= Valanga::Client.new(ENV['KID'], ENV['K_PASSWORD']).session
+        @session ||= Valanga::Client.new.session
       end
     end.new
   end
