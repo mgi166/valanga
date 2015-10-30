@@ -4,6 +4,10 @@
 
 A Ruby client for [REFLEC BEAT](http://p.eagate.573.jp/game/reflec/groovin/p/index.html)
 
+**NOTE**
+This gem is not available. Because KONAMI login page requires image authentication
+so valanga can't login. Sorry...
+
 ![](https://raw.githubusercontent.com/mgi166/valanga/master/img/Valanga.png)
 
 ## Dependency
